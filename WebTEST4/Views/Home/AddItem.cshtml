@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebTEST4.Models.Item>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Предмет</label>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="item">
+        <option selected value=0>Выбрать предмет</option>
+        @foreach(var i in Model)
+        {
+            <option value=@Html.DisplayTextFor(modelItem => i.item_id)>@Html.DisplayTextFor(modelItem => i.item_name)</option>
+        }
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Количество</label>
+    <input type="number" min="0" max="9999" class="form-control" id="exampleInputPassword1" name="count">
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+    </body>
+</html>

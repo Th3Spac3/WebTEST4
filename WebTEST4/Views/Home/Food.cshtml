@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WebTEST4.Models.UniversalModel>
+@{
+    ViewData["Title"] = "Food";
+}
+
+<table class="table">
+    @foreach(var i in Model)
+	{
+		<tr>
+			<th><img src=@Html.DisplayTextFor(modelItem => i.item_image) width="100px" height="100px"/><th>
+			<th>@Html.DisplayTextFor(modelItem => i.item_name)</th>
+			<th>@Html.DisplayTextFor(modelItem => i.item_desc)</th>
+			<th>@Html.DisplayTextFor(modelItem => i.count)</th>
+			<th><form method="get"><button class="button">Редактировать</button><input type="number" min="0" max="9999" value"0" name="count"/><input type="hidden" name="item" value='@Html.DisplayTextFor(modelItem => i.item_name)' /></form><div><form method="post"><input type="hidden" name="item" value='@Html.DisplayTextFor(modelItem => i.item_name)' /><div/><br><button class="button" type="submit">Удалить</button></form></th>
+		</tr>
+	}
+	<tr><img src="https://cdn.icon-icons.com/icons2/1206/PNG/512/1491254405-plusaddmoredetail_82972.png" onclick="location.href='@Url.Action("AddItem")'" width="100px" height="100px"/><tr>
+</table>
